@@ -1,0 +1,44 @@
+<div *ngIf="hero">
+  <h2>{{hero.name}}: карточка</h2>
+  <div>
+    <label>id: </label>{{hero.id}}</div>
+  <div>
+    <label>Имя: </label>
+    <input [(ngModel)]="hero.name" placeholder="name" />
+  </div>
+  <div>
+    <label for="">Заявки</label>
+
+    <table class="table table-striped table-bordered" *ngIf="hero.applications">
+      <thead>
+        <tr>
+          <th>Номинация</th>
+          <th>Категория</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let application of hero.applications">
+          <td>{{application.nomination}}</td>
+          <td>{{application.category}}</td>
+          <td><button (click)="removeApplication(application)">Удалить</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <label for="#applicationCategory" class="label">Категория:</label>
+    <select #applicationCategory placeholder="категория">
+      <option *ngFor="let category of categories" value="{{categories.indexOf(category)}}">{{category}}</option>     
+    </select>
+    <!--<select #applicationCat placeholder="категория">
+      <option *ngFor="let key of keys()" [value]="key">{{categories[key]}}</option>     
+    </select>-->
+    <label for="#applicationNomination" class="label">Номинация:</label>
+    <select #applicationNomination placeholder="номинация">
+      <option *ngFor="let nomination of nominations" value="{{nominations.indexOf(nomination)}}">{{nomination}}</option>
+    </select>
+    <button (click)="addApplication(applicationCategory.value, applicationNomination.value)">Добавить</button>
+  </div>
+  <button (click)="goBack()">Назад</button>
+  <button (click)="save()">Сохранить</button>
+</div>
