@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit }      from '@angular/core';
+import { Component, OnInit, Input }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 
@@ -13,7 +13,9 @@ import { HeroService } from './hero.service';
   styleUrls: [ './hero-detail.component.css' ]
 })
 export class HeroDetailComponent implements OnInit {
+  @Input()
   hero: Hero;
+
   categories: string[];
   nominations: string[];
   // cats: Object;
@@ -27,13 +29,14 @@ export class HeroDetailComponent implements OnInit {
     // console.log(categories);
     this.categories = categories;
     this.nominations = nominations;
+    
     // this.cats = cats;
   }
 
-  ngOnInit(): void {
-    this.route.params
-      .switchMap((params: Params) => this.heroService.getHero(+params['id']))
-      .subscribe(hero => {this.hero = hero});    
+  ngOnInit(): void {    
+    // this.route.params
+    //   .switchMap((params: Params) => this.heroService.getHero(+params['id']))
+    //   .subscribe(hero => {this.hero = hero});    
   }
 
   save(): void {
@@ -46,6 +49,8 @@ export class HeroDetailComponent implements OnInit {
   }
 
   addApplication(category: string, nomination: string): void{
+    if(!this.hero.applications)
+      this.hero.applications = [];
     this.hero.applications.push({'id': 0, 'category': category, 'nomination': nomination});
   }
 

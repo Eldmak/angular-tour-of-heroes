@@ -64,3 +64,15 @@ button.delete {
   background-color: gray !important;
   color:white;
 }
+
+.participants >  tbody > tr:hover{
+  cursor: pointer;
+}
+
+.participants > tbody > tr.selected{
+  background-color: darkolivegreen;
+}
+
+table > thead > tr > th:first-child{
+  width: 200px;
+}

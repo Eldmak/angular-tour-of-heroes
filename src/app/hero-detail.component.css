@@ -9,9 +9,10 @@ input {
   height: 2em;
   font-size: 1em;
   padding-left: .4em;
+  width: 100%;
 }
 button {
-  margin-top: 20px;
+  /*margin-top: 20px;*/
   font-family: Arial;
   background-color: #eee;
   border: none;
@@ -26,4 +27,8 @@ button:disabled {
   background-color: #eee;
   color: #ccc; 
   cursor: auto;
+}
+
+table > thead > tr > th:last-child{
+  width: 50px;
 }
