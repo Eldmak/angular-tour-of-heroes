@@ -30,8 +30,8 @@
             </thead>
             <tbody>
               <tr *ngFor="let application of hero.applications">
-                <td>{{nominations[application.nomination]}}</td>
-                <td>{{categories[application.category]}}</td>
+                <td>{{application.nomination.name}}</td>
+                <td>{{application.category.name}}</td>
                 <td><button (click)="removeApplication(application)">Удалить</button></td>
               </tr>
             </tbody>
@@ -39,14 +39,14 @@
 
           <label for="#applicationCategory" class="label">Категория:</label>
           <select #applicationCategory placeholder="категория">
-        <option *ngFor="let category of categories" value="{{categories.indexOf(category)}}">{{category}}</option>     
+        <option *ngFor="let category of categories" [value]="category">{{category.name}}</option>     
       </select>
           <!--<select #applicationCat placeholder="категория">
         <option *ngFor="let key of keys()" [value]="key">{{categories[key]}}</option>     
       </select>-->
           <label for="#applicationNomination" class="label">Номинация:</label>
           <select #applicationNomination placeholder="номинация">
-        <option *ngFor="let nomination of nominations" value="{{nominations.indexOf(nomination)}}">{{nomination}}</option>
+        <option *ngFor="let nomination of nominations" [value]="nomination">{{nomination.name}}</option>
       </select>
           <button (click)="addApplication(applicationCategory.value, applicationNomination.value)">Добавить</button>
         </div>

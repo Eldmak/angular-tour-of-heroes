@@ -6,15 +6,37 @@ export class Hero {
 
 export class Application{
   id: number;
-  category: string;
-  nomination: string;
+  category: Category;
+  nomination: Nomination;
 }
 
-export const categories: string[] = [
-  "Меньше 1-го года",
-  "От 1-го года до 3-ех лет",
-  "Более 3-х лет",
-  "Более 6-ти лет"
+export class Category{
+  id: number;
+  name: string;
+}
+
+export class Nomination{
+  id: number;
+  name: string;
+}
+
+export const categories: Category[] = [
+  {
+    id: 1,
+    name: "Меньше 1-го года",    
+  },
+  {
+    id: 2,
+    name: "От 1-го года до 3-ех лет"
+  },
+  {
+    id: 3,
+    name: "Более 3-х лет"
+  },
+  {
+    id: 4,
+    name: "Более 6-ти лет"
+  }
 ];
 
 export const cats: Object = {
@@ -24,8 +46,17 @@ export const cats: Object = {
   3: "Более 6-ти лет"
 };
 
-export const nominations: string[] = [
-  "Классическое наращивание ресниц",
-  "Объемное наращивание ресниц \"Двойной объем\" (2D)",
-  "Объемное наращивание ресниц \"Тройной объем\" (3D)"  
+export const nominations: Nomination[] = [
+  {
+    id: 1,
+    name: "Классическое наращивание ресниц"
+  },
+  {
+    id: 2,
+    name: "Объемное наращивание ресниц \"Двойной объем\" (2D)"
+  },
+  {
+    id: 3,
+    name: "Объемное наращивание ресниц \"Тройной объем\" (3D)"
+  }  
 ];

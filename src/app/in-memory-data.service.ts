@@ -1,17 +1,19 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { categories, nominations } from './hero'
+
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     let heroes = [
       {id: 1, name: 'Павлова Виктория Андреевна', applications: [
         {
           id: 0,
-          category: 'fdsf',
-          nomination: 'fdsfsd'
+          category: categories[0],
+          nomination: nominations[0]
         },
         {
           id: 1,
-          category: '1fdsf',
-          nomination: '1fdsfsd'
+          category: categories[0],
+          nomination: categories[1]
         }]
       },
       {id: 2, name: 'Катя'},

@@ -3,7 +3,7 @@ import { Component, OnInit, Input }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 
-import { Hero, Application, categories, /*cats,*/ nominations }        from './hero';
+import { Hero, Application, categories, /*cats,*/ nominations, Category, Nomination }        from './hero';
 import { HeroService } from './hero.service';
 
 @Component({
@@ -48,10 +48,11 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
-  addApplication(category: string, nomination: string): void{
+  addApplication(category: number, nomination: number): void{
     if(!this.hero.applications)
       this.hero.applications = [];
-    this.hero.applications.push({'id': 0, 'category': category, 'nomination': nomination});
+    var id = this.hero.applications.length;
+    this.hero.applications.push({id: id, category: categories.find(cat => cat.id == category), nomination: nominations.find(nom => nom.id == nomination)});
   }
 
   removeApplication(application: Application): void {
