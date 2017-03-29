@@ -16,8 +16,8 @@ export class HeroDetailComponent implements OnInit {
   @Input()
   hero: Hero;
 
-  categories: string[];
-  nominations: string[];
+  categories: Category[];
+  nominations: Nomination[];
   // cats: Object;
 
   constructor(

@@ -2,7 +2,7 @@
   <!--<h2>{{hero.name}}: карточка</h2>-->
   <!--<div>
     <label>id: </label>{{hero.id}}</div>-->
-  <div class="container">
+  <div class="fluid-container">
     <div class="row">
       <div class="col-md-6">
         <div class="well">
@@ -11,7 +11,7 @@
               <label>Имя: </label>
             </div>
             <div class="col-md-10">
-              <input [(ngModel)]="hero.name" placeholder="name" />
+              <input [(ngModel)]="hero.name" placeholder="ФИО" />
             </div>
           </div>
         </div>
@@ -37,18 +37,26 @@
             </tbody>
           </table>
 
-          <label for="#applicationCategory" class="label">Категория:</label>
-          <select #applicationCategory placeholder="категория">
-        <option *ngFor="let category of categories" [value]="category">{{category.name}}</option>     
-      </select>
-          <!--<select #applicationCat placeholder="категория">
-        <option *ngFor="let key of keys()" [value]="key">{{categories[key]}}</option>     
-      </select>-->
-          <label for="#applicationNomination" class="label">Номинация:</label>
-          <select #applicationNomination placeholder="номинация">
-        <option *ngFor="let nomination of nominations" [value]="nomination">{{nomination.name}}</option>
-      </select>
-          <button (click)="addApplication(applicationCategory.value, applicationNomination.value)">Добавить</button>
+          <form class="form">
+            <div class="form-group">
+              <label for="#applicationCategory" class="label">Категория:</label>
+              <select #applicationCategory placeholder="категория">
+                <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>     
+              </select>
+            </div>
+            <!--<select #applicationCat placeholder="категория">
+              <option *ngFor="let key of keys()" [value]="key">{{categories[key]}}</option>     
+            </select>-->
+            <div class="form-group">
+              <label for="#applicationNomination" class="label">Номинация:</label>
+              <select #applicationNomination placeholder="номинация">
+                <option *ngFor="let nomination of nominations" [value]="nomination.id">{{nomination.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button (click)="addApplication(applicationCategory.value, applicationNomination.value)">Добавить</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
